@@ -17,4 +17,4 @@ depends: [
   "obeam" {= "0.1.4"}
   "bitstring"
 ]
-synopsis: "Pritty-printer for BEAM"
+synopsis: "Pretty-printer for BEAM files"
