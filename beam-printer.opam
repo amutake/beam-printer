@@ -1,0 +1,20 @@
+opam-version: "2.0"
+name: "beam-printer"
+version: "0.0.1"
+maintainer: ["amutake <amutake.s@mail.com>"]
+authors: ["amutake <amutake.s@gmail.com>"]
+homepage: "https://github.com/amutake/beam-printer"
+bug-reports: "https://github.com/amutake/beam-printer/issues"
+dev-repo: "git+https://github.com/amutake/beam-printer.git"
+license: "MIT"
+build: [
+  ["dune" "build" "-p" name "-j" jobs]
+]
+depends: [
+  "ocaml"
+  "dune" {build}
+  "base"
+  "obeam" {= "0.1.4"}
+  "bitstring"
+]
+synopsis: "Pritty-printer for BEAM"

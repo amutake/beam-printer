@@ -1,0 +1,7 @@
+(executable
+ (name main)
+ (libraries obeam bitstring base))
+
+(install
+ (section bin)
+ (files (main.exe as beam-printer)))
