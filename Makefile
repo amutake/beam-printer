@@ -3,7 +3,7 @@
 build:
 	dune build
 
-install: build
+install:
 	dune install
 
 clean:

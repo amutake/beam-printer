@@ -1,0 +1,22 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: ocaml/opam2:alpine-3.8-ocaml-4.07
+    steps:
+      - checkout
+      - run:
+          name: update opam repository
+          command: eval $(opam env) && opam repo add remote-default https://opam.ocaml.org
+      - run:
+          name: install system dependencies
+          command: eval $(opam env) && opam depext obeam
+      - run:
+          name: install dependencies
+          command: eval $(opam env) && opam install . --deps-only
+      - run:
+          name: build
+          command: eval $(opam env) && make build
+      - run:
+          name: install
+          command: eval $(opam env) && make install
