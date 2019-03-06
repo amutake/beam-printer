@@ -32,11 +32,13 @@ let () =
     begin
       Caml.print_endline "BEAM printer";
       Caml.print_endline "";
-      Caml.print_endline "USAGE: beam-printer [BEAM]"
+      Caml.print_endline "USAGE: beam-printer [BEAM...]"
     end
   else
-    let file = Sys.argv.(1) in
-    Caml.Printf.printf "beam: %s\n" file;
-    match absform file with
-    | Ok absform -> absform |> Abstract_format.sexp_of_t |> Sexp.to_string_hum |> Caml.print_endline
-    | Error e -> Caml.Printf.printf "error: %s" e
+    for i = 1 to Array.length Sys.argv - 1 do
+      let file = Sys.argv.(i) in
+      Caml.Printf.printf "beam: %s\n" file;
+      match absform file with
+      | Ok absform -> absform |> Abstract_format.sexp_of_t |> Sexp.to_string_hum |> Caml.print_endline
+      | Error e -> Caml.Printf.printf "error: %s\n" e
+    done
