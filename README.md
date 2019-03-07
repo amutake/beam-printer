@@ -9,6 +9,6 @@ Usage
 -----
 
 ```console
-> make install
+> opam install .
 > beam-printer foo.beam
 ```
